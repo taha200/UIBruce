@@ -7,11 +7,20 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ptomasroos/react-native-multi-slider": "^1.0.0",
     "react": "16.6.3",
     "react-native": "^0.58.5",
+    "react-native-action-button": "^2.8.5",
     "react-native-elements": "^1.0.0",
     "react-native-gesture-handler": "^1.0.15",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-layout-grid": "0.0.2",
+    "react-native-maps": "^0.23.0",
     "react-native-material-cards": "^1.0.9",
+    "react-native-material-textfield": "^0.12.0",
+    "react-native-modal": "^9.0.0",
+    "react-native-range-slider": "^0.1.2",
+    "react-native-scrollable-tab-view": "^0.10.0",
     "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.2.1"
   },
@@ -24,5 +33,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets.fonts"
+    ]
   }
 }
