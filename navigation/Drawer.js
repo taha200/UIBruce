@@ -40,8 +40,6 @@ const DrawerNavigatior= createDrawerNavigator({
         screen:Conversation
     },
     Stack:Stack,
-},{
-    initialRouteName:'Stack'
 },drawerConfig
 )
 

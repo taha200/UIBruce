@@ -1,7 +1,8 @@
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image} from 'react-native';
+import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image,KeyboardAvoidingView} from 'react-native';
 import {Avatar,Header,Icon,SearchBar,Button,Divider,Input} from 'react-native-elements';
+import Modal from 'react-native-modal'
 
 
 
@@ -50,7 +51,8 @@ export default class Chat extends Component {
       height: Platform.OS === 'ios' ? 70 :  70 - 10}}
       />
      
-      <KeyboardAwareScrollView>
+        
+        <ScrollView>
       <View>
         <View style={{alignItems:'flex-end',marginRight:5,marginTop:10}}>
         <View style={{flexDirection:'row',backgroundColor:'gray',borderColor:'black',borderWidth:1,padding:10,marginBottom:5,borderRadius:20}}>
@@ -85,9 +87,9 @@ export default class Chat extends Component {
            <Text>I will send you in a bit moment</Text>
            <Text style={{marginLeft:5}}>1:51</Text>
          </View>
-         <View>
+         <View style={{marginBottom:5}}>
          <Image
-            style={{width:100, height:100,borderRadius:8}}
+            style={{width:150, height:125,borderRadius:8}}
             source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
           />
        </View>
@@ -95,9 +97,14 @@ export default class Chat extends Component {
            <Text>I will send you in a bit moment</Text>
            <Text style={{marginLeft:5}}>1:51</Text>
          </View>
+         <View style={{flexDirection:'row',backgroundColor:'white',borderColor:'black',borderWidth:1,padding:10,marginBottom:5,borderRadius:20}}>
+           <Text>I will send you in a bit moment</Text>
+           <Text style={{marginLeft:5}}>1:51</Text>
+         </View>
         </View>
       </View>
-      </KeyboardAwareScrollView>
+      <View style={{backgroundColor:'white',left: 0, right: 0, bottom: 0,height:105,width:'100%'}}></View>
+      </ScrollView>
       <View style={{backgroundColor:'aqua',position: 'absolute', left: 0, right: 0, bottom: 0,height:60,width:'100%'}}>
      <Input
  placeholder='Write message....'
@@ -113,7 +120,9 @@ export default class Chat extends Component {
          containerStyle={{position: 'absolute',right: 0, bottom: 0,marginTop:10,marginLeft:10}}
        />
      </View>
+  
      </View>
+  
     );
   }
 }
