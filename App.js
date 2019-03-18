@@ -8,7 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image,Alert,KeyboardAvoidingView} from 'react-native';
+import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image,Alert,KeyboardAvoidingView,Picker} from 'react-native';
 import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button,SocialIcon} from 'react-native-elements';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
 import GridLayout from 'react-native-layout-grid';
@@ -20,6 +20,8 @@ import {TextField} from 'react-native-material-textfield'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Chat from './screens/chat'
 import { GiftedChat,Bubble } from 'react-native-gifted-chat'
+import {Dropdown} from 'react-native-material-dropdown'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 import DrawerNavigator from './navigation/Drawer'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -31,7 +33,12 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   state = {
-    messages: [],
+    price:"",
+    date:new Date().toString(),
+    isDateTimePickerVisible: false,
+    messages: [{
+      value: 'Others',
+    }]
   }
 
   componentWillMount() {
@@ -75,55 +82,33 @@ export default class App extends Component {
       messages: GiftedChat.append(previousState.messages, messages),
     }))
   }
-
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+ 
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+ 
+  _handleDatePicked = (date) => {
+    let dates=date.toString()
+    console.log('A date has been picked: ', dates);
+     console.log(typeof(dates))
+    this._hideDateTimePicker();
+  };
   render() {
+    const Options= [{
+      value: 'Banana',
+    }, {
+      value: 'Mango',
+    }, {
+      value: 'Pear',
+    }]
+    const Company=[{
+      value:'TCS'
+    },{
+      value:'Fedex'
+    }]
     return (
+    
       <DrawerNavigator />
-  //     <View style={{flex:1}}>
-  //        <Header placement="left"
-  //     leftComponent={
-  //   <Icon  containerStyle={{marginBottom:8}}
-  //   name="ios-arrow-round-back"
-  //   type="ionicon"
-  //   color="black"
-  //   size={40}
   
-  //   />
-  //     }
-  //     centerComponent={{ text: 'Candy', style: { color: 'black',fontSize:20,marginBottom:10} }}
-  //     rightComponent={
-  //       <View style={{flexDirection:'row',marginBottom:8}}>
-          
-  // <Icon containerStyle={{marginRight:10}}
-  // name="ios-image"
-  // type="ionicon"
-  // color="black"
-  // size={30}
-  // />
-  
-  //         <Icon name="ios-options"
-  //   type="ionicon"
-  //   color="black"
-  //   size={30}
-  //   />
-  //       </View>
-  //     }
-  //     containerStyle={{backgroundColor:'white', borderTopLeftRadius:15,
-  //     borderTopRightRadius:15,
-  //     height: Platform.OS === 'ios' ? 70 :  70 - 10}}
-  //     />
-  //     <GiftedChat
-
-  //       messages={this.state.messages}
-  //       onSend={messages => this.onSend(messages)}
-  //       renderBubble={this.renderBubble.bind(this)}
-  //       user={{
-  //         _id: 1,
-  //       }}
-    
-  //     />
-    
-  //     </View>
     )
   }
 }

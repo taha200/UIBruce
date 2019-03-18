@@ -19,7 +19,7 @@ _toggleDespModal = () =>
 this.setState({ Despmodal: !this.state.Despmodal });
 UNSAFE_componentWillReceiveProps(newProps){
   this.setState({
-    Despmoadal:newProps.showDpModal
+    Despmodal:newProps.showDpModal
   })
 }
     render(){

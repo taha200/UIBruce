@@ -10,13 +10,18 @@ import Filter from '../screens/filter'
 import Profila from '../screens/profila'
 import Signup from '../screens/signup'
 import LoginScreen from '../screens/login'
+import ChatwGifted from '../screens/chatbygiftedchat'
+import Shipping from '../screens/shipping'
 const Width = Dimensions.get('window').width
 const Stack = createStackNavigator({
     Profila:Profila,
     Filter:Filter,
     HomeScreen:HomeScreen,
     Signup:Signup,
-    LoginScreen:LoginScreen
+    LoginScreen:LoginScreen,
+    ChatwGifted:ChatwGifted,
+    Conversation:Conversation,
+    Shipping:Shipping
     
 },{
     initialRouteName:'LoginScreen',

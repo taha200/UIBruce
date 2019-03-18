@@ -38,10 +38,11 @@ export default class Profila extends Component {
          <View style={{flexDirection:'row',marginBottom:8}}>
            
    <Icon containerStyle={{marginRight:10}}
-   name="ios-person-add"
+   name="ios-boat"
    type="ionicon"
    color="black"
    size={30}
+   onPress={()=>this.props.navigation.navigate('Shipping')}
    />
    
            <Icon name="ios-options"

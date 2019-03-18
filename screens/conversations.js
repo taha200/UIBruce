@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableHighlight,Image,Alert,FlatList} from 'react-native';
+import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image,Alert,FlatList} from 'react-native';
 import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button} from 'react-native-elements';
 
  export default class Conversation extends Component{
@@ -13,7 +13,7 @@ import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button} from '
                 type="ionicon"
                 color="white"
                 size={40}
-                onPress={() => this.props.navigation.goBack()}
+                onPress={() => this.props.navigation.navigate('HomeScreen')}
                 />
                   }
                   centerComponent={{ text: 'Conversations', style: { color: 'white',fontSize:22,marginBottom:10} }}
@@ -29,11 +29,15 @@ import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button} from '
                      uri:
                        'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                    }}
-                 />  
+                 /> 
                  <View style={{marginLeft:15,marginTop:20,borderBottomColor:'#f2f3f4',borderBottomWidth:2,paddingBottom:15,flexBasis:'70%'}}>
+                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('ChatwGifted')}>
+                    
                      <Text style={{fontSize:20,fontWeight:"bold"}}>Najam</Text>
                      <Text>no. dedu</Text>
+                     </TouchableOpacity>
                  </View>
+                
                     </View>
                   </ScrollView>
                          </View>

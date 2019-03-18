@@ -19,8 +19,10 @@ export default class HomeScreen extends Component {
     _toggleModal = () =>
     this.setState({ ismodalVisible: !this.state.ismodalVisible });
     _toggleCatModal = () =>this.setState({ isCatModal: true });
-    _toggleDespModal = ()=>this.setState({showDespModal:true})
+    _toggleDModal = ()=>this.setState({showDespModal:true})
     
+    _toggleCatCloseModal = () =>this.setState({ isCatModal:false });
+    _toggleDCloseModal = ()=>this.setState({showDespModal:false})
     render() {
       return (
         <View style={styles.container}>
@@ -73,60 +75,103 @@ export default class HomeScreen extends Component {
           name='ios-book'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-car'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-bicycle'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-camera'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-american-football'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-musical-notes'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
         <Icon
           reverse
           name='ios-laptop'
           type='ionicon'
           color='black'
-          onPress={this._toggleModal}
+          onPress={()=>
+            {
+              this._toggleModal()
+              this._toggleCatCloseModal()
+              this._toggleDCloseModal()
+            }
+          }
         />
   </ScrollView>
   <View style={{flex:1,marginTop:5,flexDirection:'row',flexWrap:'wrap'}}>
   <View style={{flexBasis:'50%'}}>
-  <Card 
+  <Card
   title='HELLO WORLD' image={{uri:'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'}}
 >
   <Text style={{marginBottom: 10}}>
     The idea with React Native Elements is more about component structure than actual design.
   </Text>
   <Button
+  onPress={this._toggleDModal}
     icon={<Icon name='code' color='#ffffff' />}
     backgroundColor='#03A9F4'
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
@@ -168,7 +213,7 @@ export default class HomeScreen extends Component {
   <Text style={{marginBottom: 10}}>
     The idea with React Native Elements is more about component structure than actual design.
   </Text>
-  <Button onPress={this._toggleDespModal}
+  <Button
     icon={<Icon name='code' color='#ffffff' />}
     backgroundColor='#03A9F4'
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
