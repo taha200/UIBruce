@@ -106,8 +106,8 @@ export default class App extends Component {
       value:'Fedex'
     }]
     return (
-    
-      <DrawerNavigator />
+  
+     <DrawerNavigator />
   
     )
   }

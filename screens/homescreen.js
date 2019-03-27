@@ -10,6 +10,7 @@ export default class HomeScreen extends Component {
     constructor(props){
       super(props);
       this.state={
+        cat:'Artesian',
         data:['categories1','categories2','categories3','categories4','categories5','categories6'],
         ismodalVisible:false,
         isCatModal:false,
@@ -45,7 +46,7 @@ export default class HomeScreen extends Component {
                   color='gray'
           />
         }
-          placeholder='Search'
+          placeholder={`Search in ${this.state.cat}`}
           shake={true}
           inputContainerStyle={{width:"100%",backgroundColor:'white',borderRadius:15,borderBottomColor:'white'}}
           containerStyle={{marginBottom:23,height:45}}
@@ -69,7 +70,8 @@ export default class HomeScreen extends Component {
   <FlatList data={this.state.data} renderItem={({item})=><Text style={{paddingBottom:10,borderBottomColor:'gray',borderBottomWidth:2,fontSize:20,marginLeft:10,marginRight:10,paddingTop:10}}>{item}</Text>} />
    </View>
     </Modal>
-  <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{paddingBottom:10,height:80}}>
+  <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{paddingBottom:20,height:105}}>
+  <View>
   <Icon
           reverse
           name='ios-book'
@@ -81,74 +83,81 @@ export default class HomeScreen extends Component {
               this._toggleCatCloseModal()
               this._toggleDCloseModal()
             }
-          }
-        />
-        <Icon
-          reverse
-          name='ios-car'
+          }       
+           />
+    <Text style={{textAlign:'center',color:'white'}}>Books</Text>
+  </View>
+  <View>
+  <Icon   name='ios-car'
           type='ionicon'
           color='black'
-          onPress={()=>
-            {
-              this._toggleModal()
-              this._toggleCatCloseModal()
-              this._toggleDCloseModal()
-            }
-          }
-        />
-        <Icon
-          reverse
-          name='ios-bicycle'
+      reverse
+      onPress={()=>
+        {
+          this._toggleModal()
+          this._toggleCatCloseModal()
+          this._toggleDCloseModal()
+        }
+      }          />
+    <Text style={{textAlign:'center',color:'white'}}>Car</Text>
+  </View>
+  <View>
+  <Icon   name='ios-bicycle'
           type='ionicon'
           color='black'
-          onPress={()=>
-            {
-              this._toggleModal()
-              this._toggleCatCloseModal()
-              this._toggleDCloseModal()
-            }
-          }
-        />
-        <Icon
-          reverse
-          name='ios-camera'
+      reverse
+      onPress={()=>
+        {
+          this._toggleModal()
+          this._toggleCatCloseModal()
+          this._toggleDCloseModal()
+        }
+      }          />
+    <Text style={{textAlign:'center',color:'white'}}>Motorcycle</Text>
+  </View>
+  <View>
+  <Icon   name='ios-car'
           type='ionicon'
           color='black'
-          onPress={()=>
-            {
-              this._toggleModal()
-              this._toggleCatCloseModal()
-              this._toggleDCloseModal()
-            }
-          }
-        />
-        <Icon
-          reverse
-          name='ios-american-football'
+      reverse
+      onPress={()=>
+        {
+          this._toggleModal()
+          this._toggleCatCloseModal()
+          this._toggleDCloseModal()
+        }
+      }          />
+    <Text style={{textAlign:'center',color:'white'}}>Car</Text>
+  </View>
+  <View>
+  <Icon   name='ios-car'
           type='ionicon'
           color='black'
-          onPress={()=>
-            {
-              this._toggleModal()
-              this._toggleCatCloseModal()
-              this._toggleDCloseModal()
-            }
-          }
-        />
-        <Icon
-          reverse
-          name='ios-musical-notes'
+      reverse
+      onPress={()=>
+        {
+          this._toggleModal()
+          this._toggleCatCloseModal()
+          this._toggleDCloseModal()
+        }
+      }          />
+    <Text style={{textAlign:'center',color:'white'}}>Car</Text>
+  </View>
+  <View>
+  <Icon   name='ios-car'
           type='ionicon'
           color='black'
-          onPress={()=>
-            {
-              this._toggleModal()
-              this._toggleCatCloseModal()
-              this._toggleDCloseModal()
-            }
-          }
-        />
-        <Icon
+      reverse
+      onPress={()=>
+        {
+          this._toggleModal()
+          this._toggleCatCloseModal()
+          this._toggleDCloseModal()
+        }
+      }          />
+    <Text style={{textAlign:'center',color:'white'}}>Car</Text>
+  </View>
+        {/* <Icon
           reverse
           name='ios-laptop'
           type='ionicon'
@@ -160,7 +169,7 @@ export default class HomeScreen extends Component {
               this._toggleDCloseModal()
             }
           }
-        />
+        /> */}
   </ScrollView>
   <View style={{flex:1,marginTop:5,flexDirection:'row',flexWrap:'wrap'}}>
   <View style={{flexBasis:'50%'}}>
