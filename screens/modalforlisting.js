@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,ScrollView,TextInput,TouchableOpacity,Image,Alert,KeyboardAvoidingView} from 'react-native';
-import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button} from 'react-native-elements';
+import {Avatar,Header,Icon,SearchBar,Divider,Input,Overlay,Rating,Button,CheckBox} from 'react-native-elements';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards';
 import GridLayout from 'react-native-layout-grid';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import MapView from 'react-native-maps'
 import Modal from 'react-native-modal'
 import {TextField} from 'react-native-material-textfield'
-
-
+import {Dropdown} from 'react-native-material-dropdown'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp, listenOrientationChange as loc,
+  removeOrientationListener as rol} from 'react-native-responsive-screen';
 export default class Modals extends Component{
   
   constructor(props){
@@ -16,7 +17,11 @@ export default class Modals extends Component{
     this.state={
       isCatModalVisible:this.props.showModal,
       isFormModalVisible:false,
-      name:""
+      name:"",
+      Male:true,
+      Female:false,
+      National:true,
+      International:true
     }
   }
   UNSAFE_componentWillReceiveProps(newProps){
@@ -24,12 +29,34 @@ export default class Modals extends Component{
       isCatModalVisible:newProps.showModal
     })
   }
+  getNational=()=>{
+    this.setState({
+National:true
+    })
+  }
+  getInternational=()=>{
+    this.setState({
+Intenational:true
+    })
+  }
+  genderChange = ()=>{
+    this.setState({
+    Male:!this.state.Male,
+    Female:!this.state.Female
+    })
+    }
   _toggleModalCat = () =>
     this.setState({ isCatModalVisible: !this.state.isCatModalVisible });
     _toggleModalForm = () =>
     this.setState({ isFormModalVisible: !this.state.isFormModalVisible });
 render(){
   console.log(this.state.isCatModalVisible)
+  const Currency=[{
+    value:'USD'
+  },{
+    value:'PKR'
+  }]
+
   return(
     <View style={{flex:1,alignItems:"center",justifyContent:'center'}}>
   <Modal isVisible={this.state.isCatModalVisible} style={{borderRadius:15,
@@ -212,25 +239,72 @@ render(){
    characterRestriction={600}
       />
       </KeyboardAvoidingView>
-      <KeyboardAvoidingView>      
-         <TextField
+      <View style={{marginLeft:7,marginTop:7,flexDirection:'row'}}>
+      <View style={{flexBasis:'68%'}}>
+      <TextField
         label='Price'
-        value={this.state.name}
-        onChangeText={ (name) => this.setState({ name }) }
         tintColor="#10e8aa"
-        containerStyle={{marginLeft:15,marginRight:15}}
+        containerStyle={{marginLeft:7,marginRight:15}}
       />
-      </KeyboardAvoidingView>
- <KeyboardAvoidingView>
-        <TextField
-        label='Extras'
-        value={this.state.name}
-        onChangeText={ (name) => this.setState({ name }) }
-        tintColor="#10e8aa"
-        containerStyle={{marginLeft:15,marginRight:15}}
-        
-      />
-      </KeyboardAvoidingView>
+      </View>
+      <View style={{flexBasis:'30%'}}>
+      <Dropdown containerStyle={{marginLeft:3,marginRight:8}} 
+        label='Currency'
+        value="USD"
+      data={Currency}
+/>
+      </View>
+      </View>
+
+      <View style={{width:'100%',height:hp('9%'),backgroundColor:'white',flexDirection:'row',alignItems:'center'}}>
+         <Text style={{marginLeft:10,color:'gray',fontSize:15,fontWeight:'bold'}}>Trade & Accept</Text>
+      </View>
+      <View style={{width:'100%',height:hp('11%'),backgroundColor:'white',flexDirection:'row',}}>
+      <CheckBox
+  title='Yes'
+  checkedIcon='dot-circle-o'
+  uncheckedIcon='circle-o'
+  checked={this.state.Male}
+  onPress={this.genderChange}
+  checkedColor='aqua'
+/>
+<CheckBox
+  center
+  title='No'
+  checkedIcon='dot-circle-o'
+  uncheckedIcon='circle-o'
+  checked={this.state.Female}
+  onPress={this.genderChange}
+  containerStyle={{marginLeft:25}}
+  checkedColor='aqua'
+/>
+
+      </View>
+      <View style={{width:'100%',height:hp('9%'),backgroundColor:'white',flexDirection:'row',alignItems:'center'}}>
+         <Text style={{marginLeft:10,color:'gray',fontSize:15,fontWeight:'bold'}}>Shipping</Text>
+      </View>
+      <View style={{width:'100%',height:hp('11%'),backgroundColor:'white',flexDirection:'row',}}>
+      <CheckBox
+  title='National'
+ checked={this.state.Intenational}
+checkedColor='aqua'
+onPress={this.getNational}
+/>
+<CheckBox
+  center
+  title='International'
+  checked={this.state.National}
+  containerStyle={{marginLeft:25}}
+  checkedColor='aqua'
+  onPress={this.getInternational}
+/>
+
+      </View>
+  </View>
+  <View style={{alignItems:'center',marginTop:10,marginBottom:10}}>
+  <TouchableOpacity style={{width:wp('90%'),height:hp('8%'),backgroundColor:'aqua',borderRadius:15,alignItems:'center',justifyContent:'center'}}>
+    <Text style={{color:'white',fontSize:20}}>List Item</Text>
+  </TouchableOpacity>
   </View>
   </ScrollView>
     </View>

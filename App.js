@@ -22,6 +22,7 @@ import Chat from './screens/chat'
 import { GiftedChat,Bubble } from 'react-native-gifted-chat'
 import {Dropdown} from 'react-native-material-dropdown'
 import DateTimePicker from 'react-native-modal-datetime-picker'
+import LoginScreen from './screens/login'
 import DrawerNavigator from './navigation/Drawer'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -106,9 +107,8 @@ export default class App extends Component {
       value:'Fedex'
     }]
     return (
-  
-     <DrawerNavigator />
-  
+  //  <LoginScreen />
+  <DrawerNavigator />
     )
   }
 }
