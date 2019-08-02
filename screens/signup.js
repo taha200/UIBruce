@@ -51,7 +51,7 @@ export default class Signup extends Component{
           </View>
           
           
-          <View style={{alignItems:'center',justifyContenty:'center',marginTop:65}}>
+          <View style={{alignItems:'center',justifyContenty:'center'}}>
             <Button title="Register"  onPress={()=>this.props.navigation.navigate('HomeScreen')} containerStyle={{borderRadius:20,width:'80%'}}  buttonStyle={{backgroundColor:'aqua'}} />
          </View>
     

@@ -286,14 +286,14 @@ render(){
       <View style={{width:'100%',height:hp('11%'),backgroundColor:'white',flexDirection:'row',}}>
       <CheckBox
   title='National'
- checked={this.state.Intenational}
+ checked={this.state.National}
 checkedColor='aqua'
 onPress={this.getNational}
 />
 <CheckBox
   center
   title='International'
-  checked={this.state.National}
+  checked={this.state.International}
   containerStyle={{marginLeft:25}}
   checkedColor='aqua'
   onPress={this.getInternational}
